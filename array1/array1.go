@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 
@@ -10,7 +11,13 @@ import (
 func main() {
 
 	fmt.Println("hello")
-	
+
+	nums := []int{1,3,4}
+
+	n := math.Max(float64(nums[0]),float64(nums[len(nums)-1]))
+
+	fmt.Println(n)
+
 }
 
 
@@ -105,7 +112,7 @@ func sum3(nums []int) int {
 
 	for i := 0; i < len(nums); i++ {
 
-		sum += nums[i];
+		sum += nums[i]
 	}
 
 	return sum
@@ -167,6 +174,29 @@ func reverse3(nums []int) []int {
 	}
 
 	return nums
+}
+
+func maxEnd3(nums []int) []int {
+
+	/*
+	Given an array of ints length 3, figure out which is larger, the first or last element in the array, and set all the other elements to be that value. Return the changed array.
+
+	maxEnd3([1, 2, 3]) → [3, 3, 3]
+	maxEnd3([11, 5, 9]) → [11, 11, 11]
+	maxEnd3([2, 11, 3]) → [3, 3, 3]
+	 */
+
+
+	n := math.Max(float64(nums[0]), float64(nums[len(nums)-1]))
+
+	for i := 0; i < len(nums); i++ {
+
+		nums[i] = int(n)
+
+	}
+
+	return nums
+
 }
 
 
