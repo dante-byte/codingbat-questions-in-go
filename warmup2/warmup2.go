@@ -18,10 +18,62 @@ func main() {
 
 }
 
-func add(add int) int  {
+func countXX(str string) int {
 
+	c := 0;
 
-	return add + 5
+	for i := 0; i < len(str)-1; i++ {
+
+		if str[i] == 'x' && str[i+1] == 'x' {
+
+			c++
+		}
+	}
+
+	return c
+}
+
+func frontTimes(str string, n int) string {
+
+	var rult string
+
+	len := len(str)
+
+	for i := 0; i < n; i++ {
+
+		if n < len-1 {
+
+			rult += str[0:3];
+		} else {
+
+			rult += str;
+		}
+
+	}
+
+	return rult
+}
+
+func stringTime(str string, n int) string {
+
+	/*
+	Given a string and a non-negative int
+	n, return a larger string that is n
+	copies of the original string.
+
+	stringTimes("Hi", 2) → "HiHi"
+	stringTimes("Hi", 3) → "HiHiHi"
+	stringTimes("Hi", 1) → "Hi"
+	 */
+
+	rult := ""
+
+	for i := 0; i < n; i++ {
+
+		rult += str
+	}
+
+	return rult
 }
 
 
