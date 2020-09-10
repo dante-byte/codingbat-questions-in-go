@@ -7,6 +7,66 @@ import (
 func main() {
 
 	fmt.Println("string1")
+
+	//var nums1 []int
+	//var nums2 []int
+
+	nums1 := []int{1,2,3,0,0,0}
+	nums2 := []int{2,5,6}
+
+	m := 3
+	n := 3
+
+	head := m-1
+	tail := n-1
+
+	//for i := len(nums1); i >= 0; i-- {
+	//
+	//
+	//
+	//	if nums1[head] > nums2[head] {
+	//
+	//		nums1[i] = nums1[head]
+    //
+	//	} else {
+	//
+	//		nums1[i] = nums2[tail]
+	//	}
+	//}
+
+	i := (m + n)-1
+
+	for i >= 0 {
+
+		if nums1[head] > nums2[head] {
+
+			fmt.Println("test.....")
+
+			if n == 1 {
+				break
+			}
+
+			nums1[i] = nums1[head]
+			head--
+
+		} else {
+
+			nums1[i] = nums2[tail]
+			tail--
+		}
+
+
+
+
+
+		i--
+	}
+
+	fmt.Println(nums1)
+
+
+
+
 	
 }
 

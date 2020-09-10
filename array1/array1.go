@@ -413,6 +413,73 @@ func double23(nums []int) bool {
 
 }
 
+func fix23(nums []int) []int {
+
+
+	i := len(nums)
+
+	for i > 0 {
+
+		if nums[i] == 3 && nums[i-1] == 2 {
+
+			nums[i] = 0
+
+		}
+
+		i--
+	}
+
+	return nums
+
+}
+
+
+func start1(a []int, b []int) int {
+
+	/*
+	Start with 2 int arrays, a and
+	b, of any length. Return how
+	many of the arrays have 1 as
+	their first element.
+
+	start1([1, 2, 3], [1, 3]) → 2
+	start1([7, 2, 3], [1]) → 1
+	start1([1, 2], []) → 1
+	 */
+
+	count := 0
+
+	if len(a) != 0 && a[0] == 1 {
+
+		count++
+	}
+
+	if len(b) != 0 && a[0] == 1 {
+		count++
+	}
+
+	return count
+}
+
+func biggerTwo(a []int, b []int) []int {
+
+	suma := 0
+	sumb := 0
+
+	for i := 0; i < len(a); i++ {
+
+		suma += a[i];
+		sumb += b[i];
+	}
+
+	if suma > sumb || suma == sumb {
+
+		return a
+	}
+
+	return b
+}
+
 
 
 
