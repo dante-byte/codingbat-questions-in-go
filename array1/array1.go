@@ -10,13 +10,10 @@ import (
 
 func main() {
 
-	fmt.Println("hello")
+	fmt.Println("fmt")
 
-	nums := []int{1,3,4}
 
-	n := math.Max(float64(nums[0]),float64(nums[len(nums)-1]))
 
-	fmt.Println(n)
 
 }
 
@@ -479,6 +476,117 @@ func biggerTwo(a []int, b []int) []int {
 
 	return b
 }
+
+
+func makeMiddle(nums []int) []int {
+
+
+	/*
+	Given an array of ints of even
+	length, return a new array length
+	2 containing the middle two elements
+	from the original array. The original
+	array will be length 2 or more.
+
+	makeMiddle([1, 2, 3, 4]) → [2, 3]
+	makeMiddle([7, 1, 2, 3, 4, 9]) → [2, 3]
+	makeMiddle([1, 2]) → [1, 2]
+	 */
+
+	len := len(nums)/2
+
+
+	rult := []int{nums[len-1],nums[len]}
+
+	return rult
+}
+
+
+func plusTwo(a []int, b []int) []int {
+
+	/*
+	Given 2 int arrays, each length 2,
+	return a new array length 4
+	containing all their elements.
+
+	plusTwo([1, 2], [3, 4]) → [1, 2, 3, 4]
+	plusTwo([4, 4], [2, 2]) → [4, 4, 2, 2]
+	plusTwo([9, 2], [3, 4]) → [9, 2, 3, 4]
+	 */
+
+	rult := make([]int, len(a) + len(b))
+
+	alen := 0
+	blen := 0
+
+	i := 0
+
+	for i < len(rult) {
+
+		if i < 2 {
+
+			rult[i] = a[alen]
+			alen++
+		} else {
+
+			rult[i] = b[alen]
+			blen++
+		}
+
+		i++
+	}
+
+	return rult
+
+
+
+}
+
+func swapEnds(nums []int) []int {
+	/*
+	Given an array of ints, swap
+	the first and last elements
+	in the array. Return the modified
+	array. The array length will be
+	at least 1.
+
+	swapEnds([1, 2, 3, 4]) → [4, 2, 3, 1]
+	swapEnds([1, 2, 3]) → [3, 2, 1]
+	swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]
+	 */
+
+	first := nums[0]
+	nums[0] = nums[len(nums)-1]
+	nums[len(nums)-1] = first
+	return nums
+}
+
+
+func midThree(nums []int) []int {
+
+	/*
+	Given an array of ints of odd
+	length, return a new array
+	length 3 containing the elements
+	from the middle of the array.
+	The array length will be at least 3.
+
+	midThree([1, 2, 3, 4, 5]) → [2, 3, 4]
+	midThree([8, 6, 7, 5, 3, 0, 9]) → [7, 5, 3]
+	midThree([1, 2, 3]) → [1, 2, 3]
+	 */
+
+	len := len(nums)/2
+
+	rult := make([]int,3)
+
+	rult = []int{nums[len-1],nums[len],nums[len+1]}
+
+	return rult
+}
+
+
+
 
 
 
