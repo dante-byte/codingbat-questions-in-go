@@ -613,6 +613,171 @@ func maxTriple(nums []int) int {
 }
 
 
+func frontPiece(nums []int) []int {
+
+
+	/*
+
+	Given an int array of any length,
+	return a new array of its first 2
+	elements. If the array is smaller
+	than length 2, use whatever elements
+	are present.
+
+	frontPiece([1, 2, 3]) → [1, 2]
+	frontPiece([1, 2]) → [1, 2]
+	frontPiece([1]) → [1]
+	 */
+
+	if len(nums) < 2 {
+
+		return nums
+	}
+
+	rult := make([]int,2)
+
+	rult[0] = nums[0]
+	rult[1] = nums[1]
+
+
+	// or rult1 := []int{nums[0],nums[1]}
+
+
+
+	return rult
+
+
+}
+
+
+func unlucky(nums []int) bool {
+
+	/*
+	We'll say that a 1 immediately
+	followed by a 3 in an array is
+	an "unlucky" 1. Return true if
+	the given array contains an unlucky
+	1 in the first 2 or last 2 positions
+	in the array.
+
+	unlucky1([1, 3, 4, 5]) → true
+	unlucky1([2, 1, 3, 4, 5]) → true
+	unlucky1([1, 1, 1]) → false
+	 */
+
+
+
+
+
+
+	for i := 1; i < len(nums); i++ {
+
+		if i <= 2 || i > len(nums)-2 {
+
+			if nums[i-1] == 1 && nums[i] == 3 {
+
+				return true
+
+			}
+		}
+	}
+
+	return false
+}
+
+
+func make2(a []int, b []int) []int {
+
+	/*
+	Given 2 int arrays, a and b,
+	return a new array length 2
+	containing, as much as will
+	fit, the elements from a
+	followed by the elements from b.
+	The arrays may be any length,
+	including 0, but there will be 2
+	or more elements available between
+	the 2 arrays.
+
+	make2([4, 5], [1, 2, 3]) → [4, 5]
+	make2([4], [1, 2, 3]) → [4, 1]
+	make2([], [1, 2]) → [1, 2]
+	 */
+
+	n := 0
+	m := 0
+	i := 0
+
+	rult := make([]int, 2)
+
+	for i < 2 {
+
+		if n < len(a) {
+
+			rult[i] = a[n]
+			n++
+		} else {
+
+			rult[i] = b[m]
+			m++
+		}
+
+		i++
+	}
+
+	return rult
+}
+
+
+func front11(a []int, b []int) []int {
+
+	/*
+	Given 2 int arrays, a and b, of
+	any length, return a new array
+	with the first element of each
+	array. If either array is length 0,
+	ignore that array.
+
+	front11([1, 2, 3], [7, 9, 8]) → [1, 7]
+	front11([1], [2]) → [1, 2]
+	front11([1, 7], []) → [1]
+	 */
+
+
+	n := make([]int,0)
+
+	if len(a) == 0 && len(b) == 0 {
+
+		return make([]int,0)
+	}
+
+
+	if len(a) != 0 && len(b) != 0 {
+
+		rult := []int{a[0],b[0]}
+
+		return rult
+
+	} else {
+
+		if len(a) != 0 && len(b) == 0 {
+
+
+			rult1 := []int{a[0]}
+			return rult1
+
+		} else {
+
+			rult1 := []int{b[0]}
+
+			return rult1
+		}
+	}
+
+	return n
+}
+
+
 
 
 
