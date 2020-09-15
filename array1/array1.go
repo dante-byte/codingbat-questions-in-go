@@ -606,7 +606,7 @@ func maxTriple(nums []int) int {
 	for i < len(nums) {
 
 
-		max = math.Max(float64(max),float64(nums[i]))
+		max = int(math.Max(float64(max), float64(nums[i])))
 	}
 
 	return max
