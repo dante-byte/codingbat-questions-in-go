@@ -110,3 +110,122 @@ func centeredAverage(nums []int) int {
 
 	return avg
 }
+
+func sum13(nums []int) int {
+
+	/*
+		Return the sum of the numbers in
+		the array, returning 0 for an empty
+		array. Except the number 13 is very
+		unlucky, so it does not count and numbers
+		that come immediately after a 13 also do not count.
+
+		sum13([1, 2, 2, 1]) → 6
+		sum13([1, 1]) → 2
+		sum13([1, 2, 2, 1, 13]) → 6
+	*/
+
+	sum := 0
+
+	for i := 0; i < len(nums); i++ {
+
+
+		if i != len(nums) && nums[i] == 13 {
+
+			i++;
+		} else {
+
+			sum += nums[i]
+		}
+	}
+
+	return sum
+}
+
+func sum67(nums []int) int {
+
+
+	/*
+		Return the sum of the numbers in
+		the array, except ignore sections
+		of numbers starting with a 6 and
+		extending to the next 7 (every 6
+		will be followed by at least one 7).
+		Return 0 for no numbers.
+
+		sum67([1, 2, 2]) → 5
+		sum67([1, 2, 2, 6, 99, 99, 7]) → 5
+		sum67([1, 1, 6, 7, 2]) → 4
+	*/
+
+	sum := 0
+
+
+	for i := 0; i < len(nums); i++ {
+
+		if nums[i] == 6 {
+
+			for nums[i] == 6 {
+
+				i++
+			}
+		} else {
+
+			sum += nums[i]
+		}
+	}
+
+	return sum
+}
+
+
+func has22(nums []int) bool {
+
+	/*
+		Given an array of ints, return true
+		if the array contains a 2 next to a
+		2 somewhere.
+
+		has22([1, 2, 2]) → true
+		has22([1, 2, 1, 2]) → false
+		has22([2, 1, 2]) → false
+	*/
+
+	for i := 1; i < len(nums); i++ {
+
+		if nums[i] == 2 && nums[i-1] == 2 {
+
+			return true
+		}
+	}
+
+	return false
+}
+
+func lucky13(nums []int) bool {
+
+	/*
+		Given an array of ints, return true
+		if the array contains no 1's and no 3's.
+
+		lucky13([0, 2, 4]) → true
+		lucky13([1, 2, 3]) → false
+		lucky13([1, 2, 4]) → false
+	*/
+
+	i := 0
+
+	for i < len(nums) {
+
+		if nums[i] == 1 || nums[i] == 13 {
+
+			return false
+
+		}
+
+		i++
+	}
+
+	return true
+}
+
