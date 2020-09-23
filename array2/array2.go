@@ -10,6 +10,11 @@ func main() {
 	fmt.Println("hello world")
 
 
+	rult := make([]int,5)
+
+	fmt.Println(len(rult))
+
+
 
 	
 }
@@ -204,14 +209,18 @@ func has22(nums []int) bool {
 
 func lucky13(nums []int) bool {
 
-	/*
-		Given an array of ints, return true
-		if the array contains no 1's and no 3's.
 
-		lucky13([0, 2, 4]) → true
-		lucky13([1, 2, 3]) → false
-		lucky13([1, 2, 4]) → false
-	*/
+	/*
+	Given an array of ints, return
+	true if the array contains no 1's and no 3's.
+
+	lucky13([0, 2, 4]) → true
+	lucky13([1, 2, 3]) → false
+	lucky13([1, 2, 4]) → false
+
+	 */
+
+
 
 	i := 0
 
@@ -228,4 +237,124 @@ func lucky13(nums []int) bool {
 
 	return true
 }
+
+
+func sum28(nums []int) bool {
+
+	/*
+	Given an array of ints, return true
+	if the sum of all the 2's in the
+	array is exactly 8.
+
+	sum28([2, 3, 2, 2, 4, 2]) → true
+	sum28([2, 3, 2, 2, 4, 2, 2]) → false
+	sum28([1, 2, 3, 4]) → false
+	 */
+
+	sum := 0
+
+	for i := 0; i < len(nums); i++ {
+
+		if nums[i] == 2 {
+
+			sum += nums[i]
+		}
+	}
+
+	return sum == 8
+}
+
+func more14(nums []int) bool {
+
+	/*
+	Given an array of ints, return true
+	if the number of 1's is greater than
+	the number of 4's
+
+	more14([1, 4, 1]) → true
+	more14([1, 4, 1, 4]) → false
+	more14([1, 1]) → true
+	 */
+
+	one := 0
+	four := 0
+
+	for i := 0; i < len(nums); i++ {
+
+		if nums[i] == 1 {
+
+			one++;
+		}
+
+		if nums[i] == 4 {
+
+			four++;
+		}
+	}
+
+	return one > four
+}
+
+func fizzArray(n int) []int {
+
+	/*
+	Given a number n, create and return
+	a new int array of length n, containing
+	the numbers 0, 1, 2, ... n-1. The given
+	n may be 0, in which case just return
+	a length 0 array. You do not need a
+	separate if-statement for the length-0
+
+	case; the for-loop should naturally
+	execute 0 times in that case, so it
+	just works. The syntax to make a new
+	int array is: new int[desired_length]
+	(See also: FizzBuzz Code)
+
+	fizzArray(4) → [0, 1, 2, 3]
+	fizzArray(1) → [0]
+	fizzArray(10) → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+	 */
+
+
+	rult := make([]int,n)
+
+
+	for i := 0; i < n; i++ {
+
+		rult[i] = i
+	}
+
+	return rult
+
+}
+
+func only14(nums []int) bool {
+
+	/*
+	Given an array of ints, return
+	true if every element is a 1 or a 4.
+
+	only14([1, 4, 1, 4]) → true
+	only14([1, 4, 2, 4]) → false
+	only14([1, 1]) → true
+	 */
+
+	i := 0
+
+	for i < len(nums) {
+
+		if nums[i] != 4 && nums[i] != 1 {
+
+			return false
+
+		}
+
+		i++
+	}
+
+	return true
+}
+
+
 
