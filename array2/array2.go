@@ -357,4 +357,119 @@ func only14(nums []int) bool {
 }
 
 
+func no14(nums []int) bool {
+
+	for i := 0; i < len(nums); i++ {
+
+		if nums[i] == 1 {
+
+			j := i
+
+			for j < len(nums) {
+
+				if nums[j] == 4 {
+
+					return false
+
+				}
+				j++
+			}
+		}
+
+		if nums[i] == 4 {
+
+			j := i
+
+			for j < len(nums) {
+
+				if nums[j] == 1 {
+
+					return false
+
+				}
+				j++
+			}
+
+		}
+	}
+
+	return true
+}
+
+
+func isEveryWhere(nums []int, val int) bool {
+
+	if len(nums) < 1 {
+
+
+		return true
+	}
+
+	n := 0
+
+
+	if nums[0] == val {
+
+		n = nums[0]
+	} else {
+
+		n = nums[1]
+	}
+
+	for i := n; i < len(nums); i+=2 {
+
+		if nums[i] != val {
+
+			return false
+
+		}
+	}
+
+	return true
+}
+
+func either24(nums []int) bool {
+
+	four := 0
+	two := 0
+
+	for i := 0; i < len(nums); i++ {
+
+		if nums[i] == 4 && nums[i-1] == 4 {
+			four++
+
+		}
+
+		if nums[i] == 2 && nums[i-1] == 2 {
+
+			two++
+
+		}
+	}
+
+	if four > 0 && two == 0 || two > 0 && four == 0 {
+
+		return true
+	}
+
+	return false
+}
+
+func matchUp(nums1 []int, nums2 []int) int {
+
+	cnt := 0
+
+	for i := 0; i < len(nums1); i++ {
+
+		if math.Abs(float64(nums1[i]) - float64(nums2[i])) <= 2 && nums2[i] != nums1[i] {
+
+			cnt++
+
+		}
+	}
+
+	return cnt
+}
+
+
 
