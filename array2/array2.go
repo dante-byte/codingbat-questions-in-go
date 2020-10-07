@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strconv"
 )
 
 func main() {
@@ -10,9 +11,18 @@ func main() {
 	fmt.Println("hello world")
 
 
-	rult := make([]int,5)
+	 str := [10]string{}
 
-	fmt.Println(len(rult))
+	for i := 0; i < 10; i++ {
+
+		str[i] = strconv.Itoa(i)
+	}
+
+	v := str[3]
+
+	fmt.Print(v)
+
+
 
 
 
@@ -295,7 +305,7 @@ func more14(nums []int) bool {
 	return one > four
 }
 
-func fizzArray(n int) []int {
+func fizzArray(n int) []string {
 
 	/*
 	Given a number n, create and return
@@ -317,12 +327,12 @@ func fizzArray(n int) []int {
 	 */
 
 
-	rult := make([]int,n)
 
+	rult :=  []string{}
 
 	for i := 0; i < n; i++ {
 
-		rult[i] = i
+		rult[i] = strconv.Itoa(i)
 	}
 
 	return rult
