@@ -11,16 +11,14 @@ func main() {
 	fmt.Println("hello world")
 
 
-	 str := [10]string{}
 
-	for i := 0; i < 10; i++ {
 
-		str[i] = strconv.Itoa(i)
-	}
 
-	v := str[3]
+	//fmt.Print(has12([]int {1,2,3}))
 
-	fmt.Print(v)
+
+
+
 
 
 
@@ -480,6 +478,158 @@ func matchUp(nums1 []int, nums2 []int) int {
 
 	return cnt
 }
+
+
+func has12(nums []int) bool {
+
+	for i := 0; i < len(nums); i++ {
+
+		if nums[i] == 1 {
+
+			j := i
+
+			for j < len(nums) {
+
+				if nums[j] == 2 {
+
+					return true
+
+				}
+
+				j++
+			}
+
+		}
+	}
+
+	return false
+}
+
+
+func modThree(nums []int) bool {
+
+	if len(nums) < 2 {
+
+		return false
+	}
+
+
+	for i := 2; i < len(nums); i++ {
+
+		if nums[i]  % 2 == 0 && nums[i-1] % 2 == 0 && nums[i-2] % 2 == 0 {
+
+			return true
+
+		}
+
+		if nums[i]  % 2 == 1 && nums[i-1] % 2 == 1 && nums[i-2] % 2 == 1 {
+
+			return true
+
+		}
+
+
+
+	}
+
+	return false
+}
+
+func haveThree(nums []int) bool {
+
+	if len(nums) < 4 {
+
+		return false
+
+	}
+
+	rult := false
+	cnt := 0
+
+	j := 0
+
+	for j < len(nums) {
+
+		if nums[j] == 3  {
+
+			cnt++
+
+		} else {
+
+			if cnt > 3 {
+
+				return false
+
+			}
+		}
+	}
+
+	for i := 4; i < len(nums); i++ {
+
+		if nums[i] == 3 && nums[i-2] == 3 && nums[i-4] == 3{
+
+			rult = true
+
+		}
+	}
+
+	if cnt == 3 && rult {
+
+		return true
+	}
+
+	return false
+}
+
+func twoTwo(nums []int) bool {
+
+	/*
+	Given an array of ints, return true if every 2
+	that appears in the array is next to another 2.
+
+	twoTwo([4, 2, 2, 3]) → true
+	twoTwo([2, 2, 4]) → true
+	twoTwo([2, 2, 4, 2]) → false
+	 */
+	
+	rult := false
+	two := true
+
+	if len(nums) == 1 && nums[0] == 2 {
+		return false
+	}
+	
+	for i := 1; i < len(nums); i++ {
+
+		if nums[i] == 2 {
+			
+			two = false
+
+		}
+
+		if i < len(nums)-1 && nums[i] != 2 && nums[i+1] == 2  {
+
+			if nums[i-1] != 2 || nums[i-1] == 2 {
+				return false
+				}
+		} else {
+
+			if nums[i] == 2 && nums[i-1] == 2 {
+
+				rult = true
+
+			}
+		}
+	}
+
+	if !two {
+
+		return rult
+	}
+
+	return two
+}
+
 
 
 
