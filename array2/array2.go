@@ -10,6 +10,13 @@ func main() {
 
 	fmt.Println("hello world")
 
+	n := 2
+
+	if n % 10 == 0 {
+
+		fmt.Print("sound evidence")
+	}
+
 
 
 
@@ -562,6 +569,7 @@ func haveThree(nums []int) bool {
 
 			}
 		}
+		j++
 	}
 
 	for i := 4; i < len(nums); i++ {
@@ -629,6 +637,73 @@ func twoTwo(nums []int) bool {
 
 	return two
 }
+
+func sameEnds2(nums []int, v int) bool {
+
+	l := len(nums)
+
+	for i := 0; i<v; i++ {
+
+		if nums[i] != nums[l-v+1] {
+
+			return false
+		}
+	}
+
+	return true
+}
+
+func tripleUp(nums []int) bool {
+
+	for i := 0; i<len(nums)-2; i++ {
+
+		if nums[i] == nums[i+1]-1 && nums[i+1] == nums[i+2]-1 {
+
+			return false
+		}
+	}
+
+	return true
+
+}
+
+func fizzArray3(start int, end int) []int {
+
+	rult := make([]int,end-start)
+
+
+	size := len(rult)
+	for i := 0; i<size; i++ {
+
+		rult[i] = start
+		start++
+
+	}
+
+	return rult
+}
+
+func shiftLeft(nums []int) []int {
+
+	if len(nums) <= 1 {
+
+		return nums
+	}
+
+	i := 0
+
+	for i < len(nums) {
+
+		cur := nums[i];
+		nums[i] = nums[i+1]
+		nums[i+1] = cur
+		i++
+	}
+
+	return nums
+}
+
+
 
 
 
