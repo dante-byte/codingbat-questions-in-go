@@ -704,6 +704,36 @@ func shiftLeft(nums []int) []int {
 }
 
 
+func tenRun(nums []int) []int {
+
+	if len(nums) < 1 {
+		return nums
+	}
+
+	cur := nums[0]
+
+	i := 0
+
+	for i < len(nums) {
+
+		if nums[i] % 10 == 0 {
+
+			cur = nums[i]
+
+		}
+
+		if cur != 1 {
+
+			nums[i] = cur
+		}
+
+		i++
+	}
+
+	return nums
+}
+
+
 
 
 
