@@ -733,6 +733,52 @@ func tenRun(nums []int) []int {
 	return nums
 }
 
+func pre4(nums []int) []int {
+
+	n := 0
+
+	for i := 0; i<len(nums); i++ {
+
+		if nums[i] != 4 {
+
+			n++
+
+		} else {
+
+			break
+		}
+	}
+
+	rult := make([]int,n)
+
+	for i := 0; i<len(rult); i++ {
+
+		rult[i] = nums[i]
+	}
+
+	return rult
+}
+
+func post4(nums []int) []int {
+
+	none :=  make([]int,0)
+
+	for i := len(nums); i>0; i-- {
+
+		if nums[i] == 4 {
+
+			rult := make([]int,i)
+
+			for j := 0; j<len(rult); j++ {
+
+				rult[j] = nums[i + j + 1]
+			}
+
+		}
+
+		return none
+	}
+}
 
 
 
