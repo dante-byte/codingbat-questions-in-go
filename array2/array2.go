@@ -776,10 +776,152 @@ func post4(nums []int) []int {
 
 		}
 
-		return none
 	}
+
+	return none
 }
 
+func zeroFront(nums []int) []int {
+
+	/*
+	Return an array that contains
+	the exact same numbers as the
+	given array, but rearranged so
+	that all the zeros are grouped
+	at the start of the array.
+	The order of the non-zero
+	numbers does not matter.
+	So {1, 0, 0, 1} becomes
+	{0 ,0, 1, 1}. You may
+	modify and return the given array
+	or make a new array.
+
+
+	zeroFront([1, 0, 0, 1]) → [0, 0, 1, 1]
+	zeroFront([0, 1, 1, 0, 1]) → [0, 0, 1, 1, 1]
+	zeroFront([1, 0]) → [0, 1]
+	 */
+
+
+	for i := 1; i<len(nums); i++ {
+
+		cur := nums[i];
+		j := i
+
+		for j > 0 && nums[j-1] != 0 && cur == 0 {
+
+			nums[j] = nums[j-1]
+			j--
+		}
+
+		nums[j] = cur
+	}
+
+	return nums
+
+
+}
+
+func withoutTen(nums []int) []int {
+
+	cnt := 0
+	rult := make([]int,len(nums))
+
+	for i := 0; i<len(nums); i++ {
+
+		if nums[i] != 10 {
+
+
+			rult[cnt] = nums[i]
+			cnt++
+		}
+	}
+
+	return rult
+}
+
+
+func zeroMax(nums []int) []int {
+
+
+
+	for i := 0; i < len(nums); i++ {
+
+		max := 0
+
+		if nums[i] == 0 {
+
+			for j := i; j < len(nums); j++ {
+
+				if nums[j] % 2 == 1 {
+
+					max = math.Max(float64(max), float64(nums[j]))
+
+				}
+			}
+
+			nums[i] =  max
+
+		}
+
+
+	}
+
+	return nums
+}
+
+
+func evenOdd(nums []int) []int {
+
+	/*
+	Return an array that contains
+	the exact same numbers as the
+	given array, but rearranged so
+	that all the even numbers come
+	before all the odd numbers.
+	Other than that, the numbers
+	can be in any order. You may
+	modify and return the given
+	array, or make a new array.
+
+
+	evenOdd([1, 0, 1, 0, 0, 1, 1]) → [0, 0, 0, 1, 1, 1, 1]
+	evenOdd([3, 3, 2]) → [2, 3, 3]
+	evenOdd([2, 2, 2]) → [2, 2, 2]
+
+	*/
+
+	if len(nums) == 2 {
+
+		if nums[0] % 2 == 0 {
+
+			return nums
+
+		} else {
+
+			start := nums[0]
+			nums[0] = nums[1]
+			nums[1] = start
+		}
+	}
+
+	for i := 1; i < len(nums); i++ {
+
+		cur := nums[i]
+
+		j := i
+
+		for j != 0 && nums[j-1] > cur && nums[j-1] % 2 == 1 {
+
+			nums[j] = nums[j-1]
+			j--
+		}
+
+		nums[j] = cur
+	}
+
+	return nums
+}
 
 
 
