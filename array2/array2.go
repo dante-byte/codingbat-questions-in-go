@@ -924,5 +924,35 @@ func evenOdd(nums []int) []int {
 }
 
 
+func fizzBuzz(start int, end int) []string {
+
+	l := end-start
+
+	nums := make([]string,l)
+
+
+	for i := 0; i < len(nums); i++ {
+
+		if i % 5 == 0 && i % 3 == 0 {
+
+			nums[i] = "FizzBuzz"
+
+		} else if i % 3 == 0 {
+
+			nums[i] = "Fizz"
+
+		} else if i % 5 == 0 {
+
+			nums[i] = "Buzz"
+		} else {
+
+			nums[i] = strconv.Itoa(i)
+		}
+	}
+
+	return nums
+}
+
+
 
 
