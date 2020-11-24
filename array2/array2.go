@@ -855,7 +855,7 @@ func zeroMax(nums []int) []int {
 
 				if nums[j] % 2 == 1 {
 
-					max = math.Max(float64(max), float64(nums[j]))
+					max = int(math.Max(float64(max), float64(nums[j])))
 
 				}
 			}
