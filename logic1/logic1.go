@@ -84,3 +84,37 @@ func more20(n int) bool {
 
 
 }
+
+
+
+
+func old35(n int) bool {
+
+	return n % 3 == 0 && n % 5 != 0 || n % 3 != 0 && n % 5 == 0
+}
+
+func less20(n int) bool {
+
+	return (n+2) % 20 == 0 || (n+1) % 20 == 0
+	
+}
+
+func nearTen(num int) bool {
+
+	// all have to be on the same line
+
+	return (num - 2) % 10 == 0 || (num - 1) % 10 == 0 || (num % 10) == 0 || (num + 2) % 10 == 0 || (num + 1) % 10 == 0
+}
+
+func teenSum(a int, b int) int {
+
+	if a >= 13 && a <= 19 || b >= 13 && b <= 19 {
+
+		return 19
+	}
+
+	return a + b
+}
+
+
+
